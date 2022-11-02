@@ -1,13 +1,15 @@
 import random
 
+
 cont = 0
 cont2 = 0
 suma = 0
+acum = 0
 promedio = 0
 mayor = 0
 moda = 0
 mediana = 0
-desEstandard = 0
+desEstandar = 0
 
 vector = []
 r = len(vector)
@@ -20,6 +22,12 @@ for i in range(rango):
     suma += vector[i]
     promedio  = suma / cont
 
+    """ Desviación estandar"""
+    a = int((vector[i]) - promedio)**2 / cont
+    acum = acum + a
+    desEstandar = (int(acum)**0.5)
+
+    """Moda"""
     cont2 = 0
 
     for j in range (r):
@@ -31,6 +39,8 @@ for i in range(rango):
         mayor = cont2
         moda = vector[i]
 
+"""Mediana"""
+vector.sort()
 if rango % 2 > 0:
     mediana = vector[rango//2]
 else:
@@ -38,9 +48,10 @@ else:
     n2 = vector[rango//2 - 1]
     mediana = (n1 + n2) / 2
 
+
 print('Se generaron',rango,'numeros aleatorios que son',vector)
 print('La suma de los números generados es',suma)
 print('El promedio de los números generados es',promedio)
 print('La moda de los números generados es',moda, 'y este se repite',mayor,'veces')
 print('La mediana de los números generados es',mediana)
-print('La desviación estandard de los números generados es',desEstandard)
+print('La desviación estandar de los números generados es',desEstandar)
