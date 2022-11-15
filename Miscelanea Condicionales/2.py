@@ -1,7 +1,3 @@
-from re import A
-from traceback import print_tb
-
-
 a = int(input('Ingrese el valor del primer número'))
 b = int(input('Ingrese el valor del segundo número'))
 c = int(input('Ingrese el valor del tercer número'))
