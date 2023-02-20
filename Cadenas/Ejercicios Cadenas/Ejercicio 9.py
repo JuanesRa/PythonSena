@@ -5,8 +5,11 @@ abecedario = 'abcdefghijklmnopqrstuvwxyz'
 cifrado = ''
 desplazamiento = 3
 for i in texto:
- if i in abecedario:
-  cifrado += abecedario[(abecedario.index(i))+desplazamiento%(len(abecedario))]
- else:
-  cifrado+=i
+  try:
+    if i in abecedario:
+      cifrado += abecedario[(abecedario.index(i))+(desplazamiento)]
+    else:
+      cifrado+=i
+  except IndexError:
+    cifrado+=i
 print(cifrado)

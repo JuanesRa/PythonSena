@@ -5,6 +5,7 @@ def buscarRepetidas(palabra):
     consonantesCadena = []
     vocalesCadena = []
     vocalesCadenaTildes = []
+    caracterEspecial = []
     
     cadena = list(palabra)
     
@@ -13,22 +14,30 @@ def buscarRepetidas(palabra):
             consonantesCadena.append(letra)
             x = len(consonantesCadena)
 
-            print('En la cadena',palabra, 'se encuentran',x,'consonantes')
-            print(consonantesCadena)
-
-        if letra in vocales:
+        elif letra in vocales:
             vocalesCadena.append(letra)
-            x = len(set(vocalesCadena))
+            y = len(set(vocalesCadena))
 
-            print('En la cadena',palabra, 'se encuentran',x,'vocales')
-            print(vocalesCadena)
-
-        if letra in vocalesConTilde:
+        elif letra in vocalesConTilde:
             vocalesCadenaTildes.append(letra)
-            x = len(set(vocalesCadenaTildes))
+            z = len(set(vocalesCadenaTildes))
             
-            print('En la cadena',palabra, 'se encuentran',x,'vocales con tíldes')
-            print(vocalesCadenaTildes)
+        else:
+            caracterEspecial.append(letra)
+            f = len(set(caracterEspecial))
+            
+            
+    print('En la cadena',palabra, 'se encuentran',x,'consonantes')
+    print(consonantesCadena)
+    
+    print('En la cadena',palabra, 'se encuentran',y,'vocales')
+    print(vocalesCadena)
+    
+    print('En la cadena',palabra, 'se encuentran',z,'vocales con tíldes')
+    print(vocalesCadenaTildes)
+    
+    print('En la cadena',palabra, 'se encuentran',f,'carácteres especiales')
+    print(caracterEspecial)
 
                 
-print(buscarRepetidas('Barcelona'))
+print(buscarRepetidas('transformación.-{'))
