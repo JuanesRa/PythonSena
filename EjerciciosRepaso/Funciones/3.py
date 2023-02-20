@@ -1,0 +1,1 @@
+#Calcular el maximo de numeros positivos introducidos por teclado,sabiendo que metemos numeros hasta que introduzcamos uno negativo. El negativo no cuenta

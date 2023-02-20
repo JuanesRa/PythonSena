@@ -1,7 +1,7 @@
 def divisores(num):
     try:        
         for i in range(num+1):
-            if num%i==0:
+            if num%2==0:
                 print(i,' es divisor')
     except ZeroDivisionError:
         print('indeterminacion')

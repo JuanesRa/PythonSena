@@ -1,6 +1,6 @@
 def divisores(num):
     try:        
-        for i in range(num+1):
+        for i in range(1,num+1):
             if num%i==0:
                 print(i,' es divisor')
     except ZeroDivisionError:
