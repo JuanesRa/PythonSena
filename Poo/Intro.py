@@ -1,19 +1,19 @@
 class Persona: #Creación clase persona
-    def __init__(self, nombre, documento): #Creación de la función constructor cuyo nombre es '__init__', que toma como parametro la palabra reservada que es 'self', y el parametro 'nombre'
+    def __init__(self, nombre, documento): #Creación del constructor cuyo nombre es '__init__', que toma como parametro la palabra reservada que es 'self', y el parametro 'nombre'
        self.__nombre = nombre #Asignación del parametro nombre al atributo nombre de la clase persona
-       self.__documento = documento
+       self.__documento = documento #Asignación del parametro documento al atributo documento de la clase persona
         
-    def getNombre(self): #Creacion de la funcion GetNombre, que toma de parametro 'self'
+    def getNombre(self): #Creacion del método GetNombre, que toma de parámetro 'self'
         return self.__nombre #Retorna el valor '__nombre' de la instancia de la clase 'Persona' 
     
-    def setNombre(self, nombre): #Creacion de la funcion SetNombre, que toma de parametro 'self'
+    def setNombre(self, nombre): #Creacion del método SetNombre, que toma de parámetro 'self'
         self.__nombre = nombre #La instancia '__nombre' de la clase Persona se le asigna el valor que se le da al parámetro 'nombre'
         
-    def getDocumento(self):
-        return self.__documento
+    def getDocumento(self): #Creacion del método GetDocumento, que toma de parámetro 'self'
+        return self.__documento #Retorna el valor '__documento' de la instancia de la clase 'Persona' 
     
-    def setDocumento(self, documento):
-        self.__documento = documento
+    def setDocumento(self, documento): #Creacion del método SetDocumento, que toma de parámetro 'self'
+        self.__documento = documento #La instancia '__documento' de la clase Persona se le asigna el valor que se le da al parámetro 'documento'
         
         
         
@@ -32,23 +32,23 @@ class Persona: #Creación clase persona
 #print(ob.getDocumento()) #Imprime el método 'getDocumento' ahora con la modificación realizada en el Set
 
 
-class Aprendiz(Persona):
-    def __init__(self,nombre,documento,ficha):
-        super().__init__(nombre,documento)
-        self.__ficha = ficha
+class Aprendiz(Persona): #Definicion de la clase 'Aprendiz' que hereda de la clase llamada 'Persona'
+    def __init__(self,nombre,documento,ficha): #Constructor de la clase aprendiz que recibe 3 parámetros, (nombre,documento y ficha)
+        Persona.__init__(self,nombre,documento) #Llamado al constructor de la clase 'Persona', al que se le pasan los parámetro (nombre y documento)
+        self.__ficha = ficha #Inicializacón del atributo '__ficha' el cual es privado
 
-    def getFicha(self):
-        return self.__ficha
+    def getFicha(self): #Creacion del método 'getFicha'
+        return self.__ficha #Retorno del valor del atributo '__ficha'
 
-    def mostrarDatos(self):
-        print('     \nDATOS APRENDIZ\n')
-        print('Nombre:', self.getNombre())
-        print('Documento:', self.getDocumento())
-        print('Ficha:', self.getFicha())
+    def mostrarDatos(self): #Creacion del método 'mostrarDatos'
+        print('     \nDATOS APRENDIZ\n') #Impresion que una cadena con saltos de línea al inicio y final de la cadena
+        print('Nombre:', self.getNombre()) #Impresión del valor de nombre, por medio del método 'getNombre' 
+        print('Documento:', self.getDocumento()) #Impresión del valor de documento, por medio del método 'getDocumento'
+        print('Ficha:', self.getFicha()) #Impresión del valor de ficha, por medio del método 'getFicha'
     
-App = Aprendiz('Juan', 1001094840, 2560664)
-App.mostrarDatos()
+App = Aprendiz('Juan', 1001094840, 2560664) #Creación de la instancia de la clase aprendiz que se llama 'App', al cual se le pasa un valor de cadena y dos numericos correspondientes a (nombre,documento y ficha)
+App.mostrarDatos() #Llamado al método 'mostrarDatos' de la instancia 'App' que imprime los datos de aprendiz
 
 
 #Metodo get y set para documento Persona /// Linea 12 a 16
-#Metodo para ver todos los datos de aprendiz /// Linea 43 a 49
+#Metodo para ver todos los datos de aprendiz /// Linea 43 a 50
