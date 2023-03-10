@@ -19,6 +19,7 @@ class Material:
     def getTipo(self):
         return self.tipoMaterial
     
+    
     def setTipo(self,tipo):
         self.tipoMaterial=tipo
 
@@ -73,7 +74,7 @@ class Lector:
         self.__nombre = nombre
         self.__direccion = direccion
         self.__telefono = telefono
-        self.__materiales = []
+
 
     def getNombre(self):
         return self.__nombre
@@ -92,17 +93,6 @@ class Lector:
     
     def setTelefono(self, telefono):
         self.__telefono = telefono
-
-# Métodos reserva
-
-    def reservar(self, material):
-        self.__materiales.append(material)
-
-    def getReservas(self):
-        titulos = ""
-        for material in self.__materiales:
-            return material.getTitulo()
-
 
 """
 
@@ -177,6 +167,7 @@ class Pedido():
         self.__idUsuario = idUsuario
         self.Material = material
         self.Bibliotecario = bibliotecario
+        self.__materiales = []
     
     def getIdUsuario(self):
         return self.__idUsuario
@@ -187,6 +178,16 @@ class Pedido():
     
     def getBibliotecario(self):
         return self.Bibliotecario
+    
+        # Métodos reserva
+
+    def reservar(self, material):
+        self.__materiales.append(material)
+
+    def getReservas(self):
+        titulos = ""
+        for material in self.__materiales:
+            return material.getTitulo()
     
     def mostrarDatosPedido(self):
         print('     \nDATOS PEDIDO\n')
@@ -199,26 +200,96 @@ class Pedido():
 INSTANCIACIÓN DE OBJETOS Y LLAMADO DE LOS MÉTODOS
 
 """
+idBibli = int(input('Bicliotecario, ingrese su ID de personal\n'))
+bibli = Bibliotecario(idBibli)
 
-lectura = Libro('Veinte mil leguas de viaje submarino','Ciencia Ficción','Julio Verne','Alianza Editorial')
-lectura2 = Revista('Materia y energía oscuras','Científica', 'Annia Domènech', 'Global Astronomía')
 
-
-aprendiz = Estudiante('Juan','Cra 38', 3126486145,2560664)
-#profesor = Docente('Esteban','Cra 10', 3167846163,2560665)
-
-bibli = Bibliotecario(12345)
-
-aprendiz.reservar(lectura)
-aprendiz.reservar(lectura2)
+def Menú():
+    print ("\nMENÚ DE OPCIONES\n")
+    print ("\t1 - Reservar material ")
+    print ("\t2 - Entregar material ")
+    print ("\t0 - Salir ")
 
 
 
-pedido = Pedido(aprendiz.getCodigoEstudiante(),lectura.getTitulo(),bibli.getIdPersonal())
+while True:
+    Menú()
+    
+    opcion = int(input("Seleccione una opción"))
+    
+    match opcion:
+        
+        case 1:
+            
+            print ("\nSELECCIONE QUE TIPO DE LECTOR ES\n")
+            print ("\t1 - Estudiante ")
+            print ("\t2 - Docente ")
+            print ("\t0 - Salir ")
+            
+            opcion = int(input('Seleccione una opción'))
+            
+            match opcion:
+                
+                case 1:
+                    nombre = input('Ingrese el nombre del estudiante\n')
+                    direccion = input('Ingrese la dirección del estudiante\n')
+                    telefono = int(input('Ingrese el teléfono del estudiante\n'))
+                    codigoEstudiante = int(input('Ingrese el código del estudiante\n'))
+                    
+                    aprendiz = Estudiante(nombre, direccion, telefono, codigoEstudiante)
+                    
+                    
+                    print ("\nSELECCIONE QUE TIPO DE MATERIAL VA A RESERVAR\n")
+                    print ("\t1 - Libro")
+                    print ("\t2 - Revista")
+                    print ("\t0 - Salir")
+                    
+                    opcion = int(input('Seleccione una opción'))
+                    
+                    match opcion:
+                        
+                        case 1:
+                            
+                            titulo = input('Ingrese el nombre del libro')
+                            tipo = input('Ingrese el tipo de libro')
+                            autor = input('Ingrese el autor del libro')
+                            editorial = input('Ingrese la editorial del libro')
+                            
+                            libro = Libro(titulo, tipo, autor, editorial)
+                        case 2:
+                            pass
+                    
+                    
+                case 2:
+                    print('Usted es docente')
+                case 3:
+                    break
+            
+        case 2:
+            break
+        case 0:
+            break
+        
+        
+# lectura = Libro('Veinte mil leguas de viaje submarino','Ciencia Ficción','Julio Verne','Alianza Editorial')
+# lectura2 = Revista('Materia y energía oscuras','Científica', 'Annia Domènech', 'Global Astronomía')
 
-pedido.mostrarDatosPedido()
+
+# #aprendiz = Estudiante('Juan','Cra 38', 3126486145,2560664)
+# #profesor = Docente('Esteban','Cra 10', 3167846163,2560665)
+
+# bibli = Bibliotecario(12345)
+
+# pedido = Pedido(aprendiz.getCodigoEstudiante(),lectura.getTitulo(),bibli.getIdPersonal())
+
+# pedido.reservar(lectura)    
+# pedido.reservar(lectura2)
 
 
 
-#aprendiz.mostrarDatosEstudiante()
+# pedido.mostrarDatosPedido()
+
+
+
+aprendiz.mostrarDatosEstudiante()
 #profesor.mostrarDatosDocente()
