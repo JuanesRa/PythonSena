@@ -46,6 +46,13 @@ class Libro(Material):
     def setEditorial(self,editorial):
         self.editorial = editorial
 
+    def getInfoLibro(self):
+        print('     \nDATOS LIBRO\n')
+        print('Nombre:', self.getTitulo())
+        print('Dirección:', self.getTipo())
+        print('Teléfono:', self.getAutor())
+        print('Código:', self.getEditorial())
+
 """
 
 CLASE HIJA "Revista" DE LA CLASE "MATERIAL"
@@ -62,6 +69,13 @@ class Revista(Material):
 
     def setEdicion(self, edicion):
         self.edicion = edicion
+
+    def getInfoRevista(self):
+        print('     \nDATOS REVISTA\n')
+        print('Nombre:', self.getTitulo())
+        print('Dirección:', self.getTipo())
+        print('Teléfono:', self.getAutor())
+        print('Código:', self.getEdicion())
 
 """
 
@@ -256,12 +270,63 @@ while True:
                             editorial = input('Ingrese la editorial del libro')
                             
                             libro = Libro(titulo, tipo, autor, editorial)
+
+                            aprendiz.mostrarDatosEstudiante()
+                            libro.getInfoLibro()
+
                         case 2:
-                            pass
-                    
+
+                            titulo = input('Ingrese el nombre de la revista')
+                            tipo = input('Ingrese el tipo de revista')
+                            autor = input('Ingrese el autor de la revista')
+                            edicion = input('Ingrese la edición de la revista')
+                            
+                            revista = Revista(titulo, tipo, autor, edicion)   
+
+                            aprendiz.mostrarDatosEstudiante()
+                            revista.getInfoRevista()
                     
                 case 2:
-                    print('Usted es docente')
+                    nombre = input('Ingrese el nombre del docente\n')
+                    direccion = input('Ingrese la dirección del docente\n')
+                    telefono = int(input('Ingrese el teléfono del docente\n'))
+                    codigoDocente = int(input('Ingrese el código de docente\n'))
+                    
+                    docente = Docente(nombre, direccion, telefono, codigoDocente)
+                    
+                    
+                    print ("\nSELECCIONE QUE TIPO DE MATERIAL VA A RESERVAR\n")
+                    print ("\t1 - Libro")
+                    print ("\t2 - Revista")
+                    print ("\t0 - Salir")
+                    
+                    opcion = int(input('Seleccione una opción'))
+                    
+                    match opcion:
+                        
+                        case 1:
+                            
+                            titulo = input('Ingrese el nombre del libro')
+                            tipo = input('Ingrese el tipo de libro')
+                            autor = input('Ingrese el autor del libro')
+                            editorial = input('Ingrese la editorial del libro')
+                            
+                            libro = Libro(titulo, tipo, autor, editorial)
+
+                            docente.mostrarDatosDocente()
+                            libro.getInfoLibro()
+
+                        case 2:
+
+                            titulo = input('Ingrese el nombre de la revista')
+                            tipo = input('Ingrese el tipo de revista')
+                            autor = input('Ingrese el autor de la revista')
+                            edicion = input('Ingrese la edición de la revista')
+                            
+                            revista = Revista(titulo, tipo, autor, edicion)   
+
+                            docente.mostrarDatosDocente()
+                            revista.getInfoRevista()
                 case 3:
                     break
             
@@ -291,5 +356,5 @@ while True:
 
 
 
-aprendiz.mostrarDatosEstudiante()
+#aprendiz.mostrarDatosEstudiante()
 #profesor.mostrarDatosDocente()
